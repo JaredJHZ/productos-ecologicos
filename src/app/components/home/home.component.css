@@ -1,0 +1,96 @@
+.main {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    flex-flow: row;
+    width: 100%;
+}
+.center {
+    text-align: center;
+}
+.book-woman {
+    height: 80%;
+    animation-name: left-to-right;
+    animation-duration: 1s;
+    position: relative;
+    left: 0px;
+    animation-timing-function:linear;
+    animation-delay:1s;
+    animation-fill-mode:forwards;
+}
+
+.left {
+    width: 50vw;
+    height: 80vh ;
+}
+
+.right {
+    position: relative;
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-flow: column;
+    animation-name: right-to-left;
+    animation-duration: 1s;
+    animation-timing-function:linear;
+    animation-delay:1s;
+    animation-fill-mode:forwards;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+}
+
+.options button {
+    margin: 5px;
+}
+
+
+@keyframes left-to-right {
+    0%   {left:0%;}
+    25%  {left:5%;}
+    50%  {left:10%;}
+    100% {left:15%;}
+}
+
+@keyframes right-to-left {
+    0%   {right:0%;}
+    25%  {right:1%;}
+    50%  {right:2%;}
+    100% {right:4%;}
+}
+
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    .book-woman {
+        width: 100%;
+        height: 45%;
+    }
+
+    .left {
+        height: auto;
+    }
+
+    .right {
+        height: auto;
+    }
+
+    .content {
+        flex-flow: column;
+    }
+
+    .text {
+        left:0;
+    }
+
+    .options {
+        flex-flow: column;
+    }
+
+}

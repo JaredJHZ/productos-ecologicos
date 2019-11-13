@@ -1,0 +1,50 @@
+.toolbar {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: #00FF00;
+}
+
+.toolbar p {
+    margin-left: 60%;
+}
+
+.toolbar button {
+    margin-left: 1%;
+}
+
+.links {
+    display: flex;
+}
+.links li {
+    margin-left: 25px;
+    list-style: none;
+}
+
+.links a {
+    text-decoration: none;
+    color: black;
+}
+
+.links a:hover {
+    font-weight: bold;
+}
+
+.active {
+    font-weight: bolder;
+}
+
+.openSide {
+    display: none;
+}
+
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    .links li {
+        display: none;
+    }
+
+    .openSide {
+        display: flex;
+    }
+}

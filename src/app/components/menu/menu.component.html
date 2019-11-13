@@ -1,0 +1,7 @@
+<ul class="links" *ngIf="items">
+        <li  *ngFor="let item of items"><a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre']}}</a></li>
+</ul>
+<div class="menu">
+        <p>{{user}}</p>
+        <button *ngIf="user" (click)="cerrarSesionHandler()" mat-raised-button color="warn">Cerrar sesión</button>
+</div>

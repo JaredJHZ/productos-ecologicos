@@ -1,0 +1,43 @@
+<article class="container">
+    <header>
+        <h1>Agregar proveedor a la base de datos</h1>
+    </header>
+    <body>
+        <form class="example-form"  (ngSubmit)="addProvider(providerForm.value)" [formGroup]="providerForm" >
+            <mat-form-field class="example-full-width">
+              <input formControlName="nombre" matInput placeholder="Nombre del proveedor" value="">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <input formControlName="telefono" matInput placeholder="Teléfono del proveedor" value="">
+              </mat-form-field>
+          
+              <mat-form-field class="example-full-width">
+                <input formControlName="ciudad" matInput placeholder="Ciudad" value="">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input formControlName="estado" matInput placeholder="Estado" value="">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input formControlName="calle" matInput placeholder="Calle" value="">
+              </mat-form-field>
+              
+              <mat-form-field class="example-full-width">
+                <input formControlName="numero" matInput placeholder="Número" value="">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input formControlName="colonia" matInput placeholder="Colonia" value="">
+              </mat-form-field>
+
+              <mat-form-field class="example-full-width">
+                <input formControlName="email" matInput placeholder="Correo electrónico" value="">
+              </mat-form-field>
+
+              <button mat-flat-button color="primary">Agregar</button>
+            
+          </form>
+    </body>
+</article>

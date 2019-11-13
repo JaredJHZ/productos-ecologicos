@@ -1,0 +1,33 @@
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-flow: column;
+    padding: 0%;
+}
+
+.links li {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.links a {
+    text-decoration: none;
+    color: white;
+}
+
+.menu {
+    padding: 2%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.menu p {
+    text-align: center;
+}
+
+.menu button {
+    width: 100%;
+}

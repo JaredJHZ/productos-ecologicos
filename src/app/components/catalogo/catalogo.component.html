@@ -1,0 +1,25 @@
+<article class="catalogo">
+    <header>
+        <app-buscador></app-buscador>
+    </header>
+    <body>
+      <div class="list" *ngFor="let product of products">
+          <mat-card class="example-card">
+              <mat-card-header>
+                <mat-card-title>{{product.data.name}}</mat-card-title>
+                <mat-card-subtitle>Precio: ${{product.data.costo}}</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image [src]="photoURL(product.data.imagen)" alt="foto de un producto">
+              <mat-card-content>
+                <p>
+                  Obtenlo ya!
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>Contacto</button>
+                <button mat-button>Favoritos</button>
+              </mat-card-actions>
+            </mat-card>
+      </div>
+    </body>
+</article>

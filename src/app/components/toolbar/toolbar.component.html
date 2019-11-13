@@ -1,0 +1,13 @@
+<mat-toolbar class="toolbar" color="primary">
+    <mat-toolbar-row>
+        <mat-icon *ngIf="!abierto" class="openSide" aria-hidden="false" aria-label="Example heart icon" (click)="abrirMenuHandler()">keyboard_arrow_right</mat-icon>
+        <mat-icon *ngIf="abierto" class="openSide" aria-hidden="false" aria-label="Example heart icon" (click)="abrirMenuHandler()">keyboard_arrow_left</mat-icon>
+        <span style="color:black">GreenBook</span>
+        <ul class="links" *ngIf="items">
+            <li  *ngFor="let item of items"><a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre']}}</a></li>
+        </ul>
+        <p>{{user}}</p>
+        <button *ngIf="user" (click)="cerrarSesionHandler()" mat-raised-button color="warn">Cerrar sesión</button>
+       
+    </mat-toolbar-row>
+</mat-toolbar>
