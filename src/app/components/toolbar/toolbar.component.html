@@ -4,10 +4,14 @@
         <mat-icon *ngIf="abierto" class="openSide" aria-hidden="false" aria-label="Example heart icon" (click)="abrirMenuHandler()">keyboard_arrow_left</mat-icon>
         <span style="color:black">GreenBook</span>
         <ul class="links" *ngIf="items">
-            <li  *ngFor="let item of items"><a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre']}}</a></li>
+            <li  *ngFor="let item of items">
+                <a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre']}}</a>
+            </li>
+           
         </ul>
-        <p>{{user}}</p>
-        <button *ngIf="user" (click)="cerrarSesionHandler()" mat-raised-button color="warn">Cerrar sesión</button>
-       
+        <div *ngIf="user" class="session">
+                <span>{{user.displayName}}</span>
+                <button *ngIf="user" (click)="cerrarSesionHandler()" mat-raised-button color="warn">Cerrar sesión</button>
+        </div>
     </mat-toolbar-row>
 </mat-toolbar>

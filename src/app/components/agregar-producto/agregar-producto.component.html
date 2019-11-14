@@ -34,7 +34,11 @@
                 </mat-form-field>
 
                 <div class="archivo">
-                    <input class="file-input" type="file" (change)="addImage($event)">
+                    <div class="upload-btn-wrapper">
+                        <button *ngIf="!nombreArchivo" class="btn">Subir imágen</button>
+                        <span *ngIf="nombreArchivo">{{nombreArchivo}}</span>
+                        <input class="custom-file-input" type="file" (change)="addImage($event)" placeholder="seleccionar">
+                      </div>
                 </div>
 
                 <button mat-flat-button color="primary">Agregar</button>

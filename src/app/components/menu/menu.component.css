@@ -9,7 +9,6 @@
 
 .links li {
     list-style: none;
-    margin-top: 15px;
 }
 
 .links a {
@@ -30,4 +29,21 @@
 
 .menu button {
     width: 100%;
+}
+
+.link {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
 }

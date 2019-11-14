@@ -15,7 +15,7 @@ export class ToolbarComponent implements OnInit {
   abierto:boolean = false;
 
   @Input()
-  user:string;
+  user:any;
 
   items: object[];
 
@@ -31,11 +31,12 @@ export class ToolbarComponent implements OnInit {
 
   cerrarSesionHandler() {
     this.loginService.logout();
+    this.loginService.deleteSession();
   }
 
 
   ngOnInit() {
-    this.user = this.loginService.getUsername();
+
   }
 
 }

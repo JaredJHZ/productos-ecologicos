@@ -21,7 +21,8 @@ export class LoginService {
   login() {
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
       (data)=> {
-        this.isLogin.next(data.user.displayName);
+        this.isLogin.next(data.user);
+        this.saveSession(data.user);
       }
     );
   }
@@ -33,5 +34,20 @@ export class LoginService {
 
   getUsername(): string {
     return this.usuario;
+  }
+
+  saveSession(user) {
+    let savedUser = JSON.stringify(user);
+    localStorage.setItem('user', savedUser);
+  }
+
+  getSession() {
+    let user = localStorage.getItem('user');
+    user = JSON.parse(user);
+    return user;
+  }
+
+  deleteSession() {
+    localStorage.clear();
   }
 }

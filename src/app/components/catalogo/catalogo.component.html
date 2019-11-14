@@ -23,5 +23,11 @@
             </mat-card>
       </div>
       </div>
+      <mat-paginator class="paginator" [length]="allProducts.length"
+              [pageSize]="4"
+              [pageSizeOptions]="[4]"
+              (page)="changePage($event)"        
+      >
+      </mat-paginator>
     </body>
 </article>

@@ -5,6 +5,7 @@
 .contenido {
   display: flex;
   margin-bottom: 20px;
+  justify-content: center;
 }
 
 .list {
@@ -18,6 +19,7 @@
 
 .list img {
   height: 305px;
+  width: 323.35px;
 }
 
 .example-card {
@@ -28,6 +30,11 @@
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
 }
+.paginator {
+  position: absolute;
+  top: 87vh;
+  width: 100%;
+}
 
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
   .contenido {
@@ -36,5 +43,10 @@
 
   .list {
     height: 450px;
+  }
+
+  .paginator {
+    position: unset;
+    
   }
 }

@@ -1,5 +1,8 @@
 <ul class="links" *ngIf="items">
-        <li  *ngFor="let item of items"><a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre']}}</a></li>
+        <div *ngFor="let item of items"  class="container">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">{{item['nombre'] | iconImage}}</mat-icon>
+                <li class="link"><a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre'] | shortName }}</a></li>
+        </div>
 </ul>
 <div class="menu">
         <p>{{user}}</p>

@@ -12,15 +12,20 @@ export class LayoutComponent implements OnInit {
 
   events: string[] = [];
   opened: boolean;
-  user:string;
+  user:any;
 
   constructor(public loginService:LoginService) { }
 
 
   ngOnInit() {
+
+    this.user = this.loginService.getSession();
+    
     this.isLogin = this.loginService.loginFlow.subscribe(
-      (data) => this.user = data
+      (data:any) => this.user = data
     )
+
+    
   }
 
   

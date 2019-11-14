@@ -19,6 +19,8 @@ import { AgregarProvedoresComponent } from './components/agregar-provedores/agre
 import { ProveedoresListComponent } from './components/proveedores-list/proveedores-list.component';
 import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ShortNamePipe } from './pipes/short-name.pipe';
+import { IconImagePipe } from './pipes/icon-image.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     BuscadorComponent,
     AgregarProvedoresComponent,
     ProveedoresListComponent,
-    AgregarProductoComponent
+    AgregarProductoComponent,
+    ShortNamePipe,
+    IconImagePipe
   ],
   imports: [
     BrowserModule,

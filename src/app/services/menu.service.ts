@@ -14,7 +14,7 @@ export class MenuService {
       ruta:'catalogo'
     },
     {
-      nombre:'proovedor',
+      nombre:'proveedor',
       ruta:'agregar-proveedor'
     },
     {

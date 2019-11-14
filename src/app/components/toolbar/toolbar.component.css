@@ -38,6 +38,17 @@
     display: none;
 }
 
+.session {
+    display: flex;
+    justify-content: center;
+    margin-left: 30%;
+}
+
+.session button {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
     .links li {
