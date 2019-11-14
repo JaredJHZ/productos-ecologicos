@@ -1,0 +1,45 @@
+<article class="container">
+        <header>
+            <h1>Agregar producto a la base de datos</h1>
+        </header>
+        <body>
+          
+            <div *ngIf="!finalizado" class="progress-bar">
+                <h1 style="text-align:center;">{{porcentaje}}</h1>
+                <mat-progress-bar mode="determinate" [value]="porcentaje"></mat-progress-bar>
+            </div>
+            
+            <form *ngIf="finalizado" class="example-form"  (ngSubmit)="uploadImageAndData(productForm.value)" [formGroup]="productForm" >
+                <mat-form-field class="example-full-width">
+                  <input formControlName="nombre" matInput placeholder="Nombre del producto" value="">
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <input formControlName="costo" matInput placeholder="Costo del producto" value="">
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Tipo de membresía</mat-label>
+                  <mat-select formControlName="membresia">
+                    <mat-option value="option1">Premium</mat-option>
+                    <mat-option value="option2">Gratis</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Vendedor</mat-label>
+                  <mat-select formControlName="vendedor">
+                    <mat-option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <div class="archivo">
+                    <input class="file-input" type="file" (change)="addImage($event)">
+                </div>
+
+                <button mat-flat-button color="primary">Agregar</button>
+                
+              </form>
+        </body>
+    </article>
+    

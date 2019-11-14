@@ -6,11 +6,17 @@ import { Observable } from 'rxjs';
 })
 export class CatalogoService {
 
+  
+
   constructor(private firestore: AngularFirestore) {
 
-   }
+    }    
 
    public getProducts() {
      return this.firestore.collection('products').snapshotChanges();
+   }
+
+   public addProduct(data) {
+    return this.firestore.collection('products').add(data);
    }
 }

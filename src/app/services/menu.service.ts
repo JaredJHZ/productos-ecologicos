@@ -18,6 +18,14 @@ export class MenuService {
       ruta:'agregar-proveedor'
     },
     {
+      nombre:'lista de proveedores',
+      ruta:'lista-proveedores'
+    },
+    {
+      nombre:"Agregar producto",
+      ruta:'agregar-producto'
+    },
+    {
       nombre:'acerca de',
       ruta:'acerca'
     }

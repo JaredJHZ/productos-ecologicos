@@ -11,26 +11,28 @@
             <mat-form-field class="example-full-width">
                 <input formControlName="telefono" matInput placeholder="Teléfono del proveedor" value="">
               </mat-form-field>
-          
-              <mat-form-field class="example-full-width">
-                <input formControlName="ciudad" matInput placeholder="Ciudad" value="">
-              </mat-form-field>
 
-              <mat-form-field class="example-full-width">
-                <input formControlName="estado" matInput placeholder="Estado" value="">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <input formControlName="calle" matInput placeholder="Calle" value="">
-              </mat-form-field>
-              
-              <mat-form-field class="example-full-width">
-                <input formControlName="numero" matInput placeholder="Número" value="">
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <input formControlName="colonia" matInput placeholder="Colonia" value="">
-              </mat-form-field>
+              <div class="direccion">
+                  <mat-form-field >
+                      <input formControlName="ciudad" matInput placeholder="Ciudad" value="">
+                    </mat-form-field>
+      
+                    <mat-form-field >
+                      <input formControlName="estado" matInput placeholder="Estado" value="">
+                    </mat-form-field>
+      
+                    <mat-form-field >
+                      <input formControlName="calle" matInput placeholder="Calle" value="">
+                    </mat-form-field>
+                    
+                    <mat-form-field >
+                      <input formControlName="numero" matInput placeholder="Número" value="">
+                    </mat-form-field>
+      
+                    <mat-form-field>
+                      <input formControlName="colonia" matInput placeholder="Colonia" value="">
+                    </mat-form-field>
+              </div>     
 
               <mat-form-field class="example-full-width">
                 <input formControlName="email" matInput placeholder="Correo electrónico" value="">

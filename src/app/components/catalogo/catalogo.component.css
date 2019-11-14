@@ -2,15 +2,39 @@
     width: 100vw;
 }
 
+.contenido {
+  display: flex;
+  margin-bottom: 20px;
+}
+
 .list {
     margin: 20px;
+    height: 500px;
+}
+
+.list mat-card {
+  height: 100%;
+}
+
+.list img {
+  height: 305px;
 }
 
 .example-card {
     max-width: 350px;
   }
   
-  .example-header-image {
+.example-header-image {
     background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
     background-size: cover;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  .contenido {
+      flex-direction: column;
   }
+
+  .list {
+    height: 450px;
+  }
+}

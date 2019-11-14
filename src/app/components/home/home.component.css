@@ -94,3 +94,11 @@
     }
 
 }
+
+
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .book-woman {
+        width: 70%;
+    }
+    
+}

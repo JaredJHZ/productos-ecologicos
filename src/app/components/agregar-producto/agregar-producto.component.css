@@ -9,7 +9,7 @@
 
   
   .example-full-width {
-    width: 30%;
+    width: 70%;
   }
 
   .container {
@@ -17,6 +17,15 @@
       flex-flow: column;
       justify-content: center;
       align-content: center;
+  }
+
+  .archivo {
+    margin: 30px;
+  }
+
+  .progress-bar{
+    width: 100%;
+    margin: 20px;
   }
 
 

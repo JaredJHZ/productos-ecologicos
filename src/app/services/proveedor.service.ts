@@ -14,5 +14,7 @@ export class ProveedorService {
     return this.firestore.collection('providers').add(data);
   }
 
-  
+  public getProviders() {
+    return this.firestore.collection('providers').snapshotChanges();
+  }
 }

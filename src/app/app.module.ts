@@ -16,6 +16,9 @@ import { MenuComponent } from './components/menu/menu.component';
 import { CatalogoComponent } from './components/catalogo/catalogo.component';
 import { BuscadorComponent } from './components/buscador/buscador.component';
 import { AgregarProvedoresComponent } from './components/agregar-provedores/agregar-provedores.component';
+import { ProveedoresListComponent } from './components/proveedores-list/proveedores-list.component';
+import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { AgregarProvedoresComponent } from './components/agregar-provedores/agre
     MenuComponent,
     CatalogoComponent,
     BuscadorComponent,
-    AgregarProvedoresComponent
+    AgregarProvedoresComponent,
+    ProveedoresListComponent,
+    AgregarProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +42,7 @@ import { AgregarProvedoresComponent } from './components/agregar-provedores/agre
     RoutesModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    AngularFireStorageModule,
     AngularFireAuthModule
   ],
   providers: [],
