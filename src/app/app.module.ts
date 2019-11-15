@@ -21,6 +21,7 @@ import { AgregarProductoComponent } from './components/agregar-producto/agregar-
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ShortNamePipe } from './pipes/short-name.pipe';
 import { IconImagePipe } from './pipes/icon-image.pipe';
+import { ContactInfoComponent } from './components/contact-info/contact-info.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { IconImagePipe } from './pipes/icon-image.pipe';
     ProveedoresListComponent,
     AgregarProductoComponent,
     ShortNamePipe,
-    IconImagePipe
+    IconImagePipe,
+    ContactInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { IconImagePipe } from './pipes/icon-image.pipe';
     AngularFireAuthModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ContactInfoComponent]
 })
 export class AppModule { }

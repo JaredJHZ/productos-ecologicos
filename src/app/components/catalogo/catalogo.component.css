@@ -10,7 +10,7 @@
 
 .list {
     margin: 20px;
-    height: 500px;
+    height: 465px;
 }
 
 .list mat-card {
@@ -35,6 +35,17 @@
   top: 87vh;
   width: 100%;
 }
+.actions {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.actions button {
+  margin: 3px;
+
+}
 
 @media screen and (max-device-width: 480px) and (orientation: portrait) {
   .contenido {
@@ -42,7 +53,7 @@
   }
 
   .list {
-    height: 450px;
+    height: 460px;
   }
 
   .paginator {

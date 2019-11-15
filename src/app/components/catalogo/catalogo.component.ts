@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CatalogoService } from 'src/app/services/catalogo.service';
 import {DomSanitizer} from '@angular/platform-browser';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { ContactInfoComponent } from '../contact-info/contact-info.component';
 
 @Component({
   selector: 'app-catalogo',
@@ -15,7 +17,7 @@ export class CatalogoComponent implements OnInit {
   pageEvent: PageEvent;
 
 
-  constructor(private catalogoService:CatalogoService , private sanitizer: DomSanitizer) { }
+  constructor(private catalogoService:CatalogoService , private sanitizer: DomSanitizer, public dialog:MatDialog) { }
 
   ngOnInit() {
     this.catalogoService.getProducts().subscribe(
@@ -45,6 +47,16 @@ export class CatalogoComponent implements OnInit {
 
   changeProducts(minNumber: number, maxNumber:number) {
     this.products = this.allProducts.filter((product, index) =>  index >= minNumber && index < maxNumber);
+  }
+
+  openContactInfo(data) {
+    const dialogRef = this.dialog.open(ContactInfoComponent, {
+      width: '400px',
+      data: {
+        id: data.vendedor,
+        img: data.imagen
+      }
+    })
   }
 
 

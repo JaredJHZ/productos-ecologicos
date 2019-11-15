@@ -12,13 +12,13 @@
               </mat-card-header>
               <img mat-card-image [src]="photoURL(product.data.imagen)" alt="foto de un producto">
               <mat-card-content>
-                <p>
+                <p style="text-align: center;">
                   Obtenlo ya!
                 </p>
               </mat-card-content>
-              <mat-card-actions>
-                <button mat-button>Contacto</button>
-                <button mat-button>Favoritos</button>
+              <mat-card-actions class="actions">
+                <button mat-flat-button color="primary" (click)="openContactInfo(product.data)">Contacto</button>
+                <button mat-flat-button color="accent">Favorito</button>
               </mat-card-actions>
             </mat-card>
       </div>

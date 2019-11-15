@@ -10,7 +10,7 @@ export class LoginService {
 
 
   usuario:string = '';
-  private isLogin = new Subject<string>();
+  private isLogin = new Subject<any>();
   public loginFlow = this.isLogin.asObservable();
 
 
