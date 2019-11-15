@@ -59,6 +59,14 @@ export class CatalogoComponent implements OnInit {
     })
   }
 
+  buscar(event:string) {
+    if (event === '' || event.length <=0) {
+      this.changeProducts(0,4);
+    } else {
+      this.products = this.allProducts.filter((value) => value.data.nombre.toUpperCase().includes(event.toUpperCase()))
+    }
+  }
+
 
 
 }

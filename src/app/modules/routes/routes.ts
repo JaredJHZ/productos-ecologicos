@@ -4,6 +4,7 @@ import { CatalogoComponent } from 'src/app/components/catalogo/catalogo.componen
 import { AgregarProvedoresComponent } from 'src/app/components/agregar-provedores/agregar-provedores.component';
 import { ProveedoresListComponent } from 'src/app/components/proveedores-list/proveedores-list.component';
 import { AgregarProductoComponent } from 'src/app/components/agregar-producto/agregar-producto.component';
+import { AcercaComponent } from 'src/app/components/acerca/acerca.component';
 
 const appRoutes: Routes = [
     {
@@ -25,6 +26,10 @@ const appRoutes: Routes = [
     {
         path:'agregar-producto',
         component: AgregarProductoComponent
+    },
+    {
+        path:'acerca',
+        component: AcercaComponent
     },
     {
         path:'',

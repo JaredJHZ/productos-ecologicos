@@ -22,6 +22,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ShortNamePipe } from './pipes/short-name.pipe';
 import { IconImagePipe } from './pipes/icon-image.pipe';
 import { ContactInfoComponent } from './components/contact-info/contact-info.component';
+import { AcercaComponent } from './components/acerca/acerca.component';
+import {AnimateOnScrollModule} from 'ng2-animate-on-scroll';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { ContactInfoComponent } from './components/contact-info/contact-info.com
     AgregarProductoComponent,
     ShortNamePipe,
     IconImagePipe,
-    ContactInfoComponent
+    ContactInfoComponent,
+    AcercaComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,8 @@ import { ContactInfoComponent } from './components/contact-info/contact-info.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AnimateOnScrollModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

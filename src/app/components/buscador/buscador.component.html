@@ -1,6 +1,6 @@
 <form class="search">
         <mat-form-field class="example-full-width">
-          <input type="buscador" matInput placeholder="Buscador">
+          <input name="palabra" [(ngModel)]="palabra" type="buscador" matInput placeholder="Buscador" (keyup)="escribir($event)">
           <mat-icon matSuffix>search</mat-icon>
         </mat-form-field>        
 </form>      

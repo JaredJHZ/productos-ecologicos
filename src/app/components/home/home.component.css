@@ -54,15 +54,11 @@
 
 @keyframes left-to-right {
     0%   {left:0%;}
-    25%  {left:5%;}
-    50%  {left:10%;}
     100% {left:15%;}
 }
 
 @keyframes right-to-left {
     0%   {right:0%;}
-    25%  {right:1%;}
-    50%  {right:2%;}
     100% {right:4%;}
 }
 
@@ -96,7 +92,7 @@
 }
 
 
-@media (min-width: 1025px) and (max-width: 1366px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
     .book-woman {
         width: 70%;
     }

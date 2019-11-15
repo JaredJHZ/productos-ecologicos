@@ -9,12 +9,18 @@ import { ProveedorService } from 'src/app/services/proveedor.service';
 })
 export class ContactInfoComponent implements OnInit {
 
+  proveedor:any;
+
   constructor( public dialogRef: MatDialogRef<ContactInfoComponent>,  @Inject(MAT_DIALOG_DATA) public data: any, private proveederService:ProveedorService) {
       this.proveederService.getProvider(this.data.id).subscribe(
-        (data) => console.log(data.payload.data())
+        (data) => {
+          this.proveedor = data.payload.data();
+          console.log(this.proveedor);
+        }
       )
    }
 
   ngOnInit() {
+    console.log(this.proveedor);
   }
 }

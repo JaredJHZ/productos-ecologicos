@@ -1,6 +1,7 @@
-<div>
-    <h1>Información del vendedor</h1>
+<div class="modal">
+    <h5 >Información del vendedor</h5>
     <img [src]="data.img" alt="producto" />
-    <p>Para comprar este producto favor de contactar a: </p>
-    <p></p>
+    <p>Para comprar este producto favor de contactar a: <br> <strong>{{proveedor.nombre}}</strong></p>
+    <p>Teléfono: {{proveedor.telefono}}</p>
+    <p>Email: {{proveedor.email}}</p>
 </div>
