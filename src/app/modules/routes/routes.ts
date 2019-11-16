@@ -5,11 +5,13 @@ import { AgregarProvedoresComponent } from 'src/app/components/agregar-provedore
 import { ProveedoresListComponent } from 'src/app/components/proveedores-list/proveedores-list.component';
 import { AgregarProductoComponent } from 'src/app/components/agregar-producto/agregar-producto.component';
 import { AcercaComponent } from 'src/app/components/acerca/acerca.component';
+import { LoginComponent } from 'src/app/components/login/login.component';
 
 const appRoutes: Routes = [
     {
         path:'home',
         component: HomeComponent
+        
     },
     {
         path:'catalogo',
@@ -30,6 +32,10 @@ const appRoutes: Routes = [
     {
         path:'acerca',
         component: AcercaComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
     },
     {
         path:'',

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
 import { LoginService } from 'src/app/services/login.service';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -15,7 +16,10 @@ export class LayoutComponent implements OnInit {
   opened: boolean;
   user:any;
 
-  constructor(public loginService:LoginService) { }
+
+  constructor(public loginService:LoginService) {
+
+   }
 
 
   ngOnInit() {
@@ -23,7 +27,15 @@ export class LayoutComponent implements OnInit {
     this.user = this.loginService.getSession();
     
     this.isLogin = this.loginService.loginFlow.subscribe(
-      (data:any) => this.user = data
+      (data:any) => {
+        this.user = data;
+        this.loginService.isManager(data.email).then(
+          (data) => {
+            let permission = 'manager';
+            localStorage.setItem('permission',permission);
+          }
+        ).catch(() => localStorage.setItem('permission', 'user'))
+      }
     )
 
     

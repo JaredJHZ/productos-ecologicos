@@ -1,34 +1,43 @@
-
-
-.slide {
+.content {
     display: flex;
-    position: absolute;
+    justify-content: center;
     flex-flow: column;
     text-align: center;
-    justify-content: center;
     align-content: center;
     align-items: center;
+    width: 100%;
 }
 
-.more-info {
-    position: absolute;
-    top: 600px;
-    left: 30%;
+.layout {
+    width: 90vw;
+    padding: 20px;
+}
+
+.flecha {
     text-align: center;
 }
 
-.jared {
-    position: absolute;
-    top: 800px;
+.student {
+    display: flex;
+    margin-top: 55px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
 }
 
-.jared img {
+.info {
+    margin: 25px;
+}
+
+ img {
     width: 300px;
 }
 
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    .student {
+        flex-flow: column;
+        margin-top: 10px;
+    }
 
-.slide img {
-    width: 300px;
-    margin: 10px;
 }
-

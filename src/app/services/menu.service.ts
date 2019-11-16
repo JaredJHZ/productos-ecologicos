@@ -6,30 +6,33 @@ import { Injectable } from '@angular/core';
 export class MenuService {
   items: object[] = [
     {
-      nombre:'inicio',
+      nombre:'Inicio',
       ruta:'home'
     },
     {
-      nombre:'catálogo',
+      nombre:'Catálogo',
       ruta:'catalogo'
     },
     {
-      nombre:'proveedor',
+      nombre:'Acerca de',
+      ruta:'acerca'
+    }
+  ];
+
+  admin: Object[] = [
+    {
+      nombre:'Agregar proveedor',
       ruta:'agregar-proveedor'
     },
     {
-      nombre:'lista de proveedores',
+      nombre:'Lista de proveedores',
       ruta:'lista-proveedores'
     },
     {
       nombre:"Agregar producto",
       ruta:'agregar-producto'
-    },
-    {
-      nombre:'acerca de',
-      ruta:'acerca'
     }
-  ];
+  ]
 
   constructor() { }
 }

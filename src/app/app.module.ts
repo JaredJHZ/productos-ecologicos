@@ -26,6 +26,8 @@ import { AcercaComponent } from './components/acerca/acerca.component';
 import {NgsRevealModule} from 'ngx-scrollreveal';
 import { TrackScrollDirective } from './scroll-directive';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { AnimateComponent } from './animate/animate.components';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
     IconImagePipe,
     ContactInfoComponent,
     AcercaComponent,
-    TrackScrollDirective
+    TrackScrollDirective,
+    AnimateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

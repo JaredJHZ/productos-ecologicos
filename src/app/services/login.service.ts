@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Subject } from "rxjs";
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class LoginService {
 
 
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth, private firestore: AngularFirestore) { }
 
   
   login() {
@@ -49,5 +50,24 @@ export class LoginService {
 
   deleteSession() {
     localStorage.clear();
+  }
+
+  isManager(email) {
+    return new Promise( (resolve, reject) => {
+      this.firestore.collection('managers').snapshotChanges().subscribe(
+        (managers) => {
+            managers.forEach( ( manager:any ) => {
+              if (email === manager.payload.doc.data().email) {
+                resolve(true);
+              }
+            });
+            reject(false);
+        }
+      );
+    })
+  }
+
+  getManagers() {
+    return this.firestore.collection('managers').snapshotChanges();
   }
 }

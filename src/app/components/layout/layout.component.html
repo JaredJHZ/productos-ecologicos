@@ -1,4 +1,4 @@
-<mat-drawer-container class="container">
+<mat-drawer-container *ngIf="!isLoginLayout" class="container">
         <mat-drawer class="sidenav" #sidenav mode="side" [(opened)]="opened" >
             <app-menu [user]="user" ></app-menu>
         </mat-drawer>
@@ -9,3 +9,7 @@
                 </article>
         </mat-drawer-content>
 </mat-drawer-container>
+
+<div *ngIf="isLoginLayout">
+
+</div>
