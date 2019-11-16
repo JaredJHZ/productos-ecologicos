@@ -1,14 +1,34 @@
-.fadeIn {
-    animation-name: fadeIn;
-    animation-duration: 3.5s;
-    animation-timing-function:linear;
-    animation-delay:1s;
-    animation-fill-mode:forwards;
-    opacity: 0;
+
+
+.slide {
+    display: flex;
+    position: absolute;
+    flex-flow: column;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.more-info {
+    position: absolute;
+    top: 600px;
+    left: 30%;
     text-align: center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+.jared {
+    position: absolute;
+    top: 800px;
 }
+
+.jared img {
+    width: 300px;
+}
+
+
+.slide img {
+    width: 300px;
+    margin: 10px;
+}
+

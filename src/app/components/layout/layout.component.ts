@@ -8,6 +8,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class LayoutComponent implements OnInit {
 
+  
   private isLogin: Subscription = null;
 
   events: string[] = [];

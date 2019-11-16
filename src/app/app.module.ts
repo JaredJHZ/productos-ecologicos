@@ -23,7 +23,9 @@ import { ShortNamePipe } from './pipes/short-name.pipe';
 import { IconImagePipe } from './pipes/icon-image.pipe';
 import { ContactInfoComponent } from './components/contact-info/contact-info.component';
 import { AcercaComponent } from './components/acerca/acerca.component';
-import {AnimateOnScrollModule} from 'ng2-animate-on-scroll';
+import {NgsRevealModule} from 'ngx-scrollreveal';
+import { TrackScrollDirective } from './scroll-directive';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,8 @@ import {AnimateOnScrollModule} from 'ng2-animate-on-scroll';
     ShortNamePipe,
     IconImagePipe,
     ContactInfoComponent,
-    AcercaComponent
+    AcercaComponent,
+    TrackScrollDirective
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,9 @@ import {AnimateOnScrollModule} from 'ng2-animate-on-scroll';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
-    AnimateOnScrollModule.forRoot()
+    NgsRevealModule,
+    ScrollDispatchModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
