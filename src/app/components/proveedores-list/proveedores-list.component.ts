@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { SelectionPopupComponent } from '../selection-popup/selection-popup.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proveedores-list',
@@ -20,7 +21,7 @@ export class ProveedoresListComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private proveedoresService: ProveedorService, 
-    public dialog:MatDialog) { }
+    public dialog:MatDialog, private router: Router) { }
 
   ngOnInit() {
     this.getProviders();
@@ -62,6 +63,10 @@ export class ProveedoresListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
     });
+  }
+
+  editar(id) {
+    this.router.navigate(['editar-proveedor', id]);
   }
 
 }

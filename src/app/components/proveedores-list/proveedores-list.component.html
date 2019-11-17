@@ -31,7 +31,7 @@
           <th mat-header-cell *matHeaderCellDef> Acciones </th>
           <td mat-cell *matCellDef="let item">
             <div class="buttons">
-                <button mat-raised-button color="primary">Editar</button>
+                <button (click)="editar(item.id)" mat-raised-button color="primary">Editar</button>
                 <button (click)="eliminar(item.id, item.name)" mat-raised-button color="warn">Eliminar</button>
             </div>
           </td>

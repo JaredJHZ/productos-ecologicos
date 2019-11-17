@@ -3,6 +3,7 @@ import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Subject } from "rxjs";
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class LoginService {
 
 
 
-  constructor(public afAuth: AngularFireAuth, private firestore: AngularFirestore) { }
+  constructor(public afAuth: AngularFireAuth, private firestore: AngularFirestore, private router:Router) { }
 
   
   login() {
@@ -31,6 +32,7 @@ export class LoginService {
   logout() {
     this.afAuth.auth.signOut();
     this.isLogin.next('');
+    this.router.navigate(['home']);
   }
 
   getUsername(): string {

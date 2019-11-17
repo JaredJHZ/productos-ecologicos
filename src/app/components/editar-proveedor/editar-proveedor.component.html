@@ -1,0 +1,57 @@
+<article  wmAnimate="fadeIn" speed="lower" aos *ngIf="!loading" class="container">
+        <header>
+            <h1>Actualizar datos del proveedor</h1>
+        </header>
+        <body>
+            <app-loading *ngIf="loading"></app-loading>
+    
+            <form *ngIf="!loading" class="example-form"  (ngSubmit)="actualizar(providerForm.value)" [formGroup]="providerForm" >
+                <mat-form-field class="example-full-width">
+                  <input formControlName="nombre" matInput placeholder="Nombre del proveedor" >
+                </mat-form-field>
+    
+                <mat-form-field class="example-full-width">
+                    <input formControlName="telefono" matInput placeholder="Teléfono del proveedor">
+                  </mat-form-field>
+    
+                  <div class="direccion">
+                      <mat-form-field >
+                          <input formControlName="ciudad" matInput placeholder="Ciudad" >
+                        </mat-form-field>
+          
+                        <mat-form-field >
+                          <input formControlName="estado" matInput placeholder="Estado" >
+                        </mat-form-field>
+          
+                        <mat-form-field >
+                          <input formControlName="calle" matInput placeholder="Calle" >
+                        </mat-form-field>
+                        
+                        <mat-form-field >
+                          <input formControlName="numero" matInput placeholder="Número" >
+                        </mat-form-field>
+          
+                        <mat-form-field>
+                          <input formControlName="colonia" matInput placeholder="Colonia" >
+                        </mat-form-field>
+                  </div>     
+    
+                  <mat-form-field class="example-full-width">
+                    <input formControlName="email" matInput placeholder="Correo electrónico" >
+                  </mat-form-field>
+    
+                  <div class="buttons">
+                        <button type="button" (click)="cancelar()" mat-flat-button color="warn">Cancelar</button>
+                        <button mat-flat-button color="primary">Actualizar</button>
+                    </div>
+                
+              </form>
+    
+              <div *ngIf="exito">
+                  <h5 style="text-align: center;">Proveedor actualizado</h5>
+              </div>
+        </body>
+    </article>
+    
+
+    <app-loading *ngIf="loading"></app-loading>

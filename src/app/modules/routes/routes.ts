@@ -8,6 +8,7 @@ import { AcercaComponent } from 'src/app/components/acerca/acerca.component';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { AdminComponent } from 'src/app/components/admin/admin.component';
 import { ProductsListComponent } from 'src/app/components/products-list/products-list.component';
+import { EditarProveedorComponent } from 'src/app/components/editar-proveedor/editar-proveedor.component';
 
 const appRoutes: Routes = [
     {
@@ -30,6 +31,10 @@ const appRoutes: Routes = [
     {
         path:'lista-productos',
         component: ProductsListComponent
+    },
+    {
+        path:'editar-proveedor/:id',
+        component:EditarProveedorComponent
     },
     {
         path:'agregar-producto',

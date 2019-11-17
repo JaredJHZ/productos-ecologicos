@@ -26,4 +26,8 @@ export class ProveedorService {
   public deleteProvider(id) {
     return this.firestore.collection('providers').doc(id).delete();
   }
+
+  public updateProvider(id,data) {
+    return this.firestore.collection('providers').doc(id).update(data);
+  }
 }

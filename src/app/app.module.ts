@@ -33,6 +33,7 @@ import { SelectionPopupComponent } from './components/selection-popup/selection-
 import { AdminComponent } from './components/admin/admin.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { InfoProductComponent } from './components/info-product/info-product.component';
+import { EditarProveedorComponent } from './components/editar-proveedor/editar-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { InfoProductComponent } from './components/info-product/info-product.com
     SelectionPopupComponent,
     AdminComponent,
     ProductsListComponent,
-    InfoProductComponent
+    InfoProductComponent,
+    EditarProveedorComponent
   ],
   imports: [
     BrowserModule,

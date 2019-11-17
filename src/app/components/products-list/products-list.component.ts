@@ -5,6 +5,7 @@ import { CatalogoService } from 'src/app/services/catalogo.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { ProveedorService } from 'src/app/services/proveedor.service';
 import { InfoProductComponent } from '../info-product/info-product.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -19,7 +20,7 @@ export class ProductsListComponent implements OnInit {
   products: any [] = [];
 
   constructor(public dialog:MatDialog, private catalogoService: CatalogoService, 
-    private proveederService:ProveedorService) { 
+    private proveederService:ProveedorService, private router: Router) { 
     this.loading = true;
     this.catalogoService.getProducts().subscribe(
       (data) => {
@@ -66,6 +67,10 @@ export class ProductsListComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       
     });
+  }
+
+  editar(id) {
+    this.router.navigate(['editar-producto', id]);
   }
 
 }
