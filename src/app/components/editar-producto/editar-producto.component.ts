@@ -107,4 +107,8 @@ export class EditarProductoComponent implements OnInit {
   ngOnInit() {
   }
 
+  cancelar() {
+    this.router.navigate(['lista-proveedores']);
+  }
+
 }
