@@ -1,5 +1,6 @@
 .main {
     width: 100%;
+    overflow: hidden;
 }
 
 .content {
@@ -12,18 +13,13 @@
 }
 .book-woman {
     height: 80%;
-    animation-name: left-to-right;
-    animation-duration: 1s;
     position: relative;
-    left: 0px;
-    animation-timing-function:linear;
-    animation-delay:1s;
-    animation-fill-mode:forwards;
 }
 
 .left {
     width: 50vw;
     height: 80vh ;
+    position: relative;
 }
 
 .right {
@@ -35,11 +31,6 @@
     align-content: center;
     align-items: center;
     flex-flow: column;
-    animation-name: right-to-left;
-    animation-duration: 1s;
-    animation-timing-function:linear;
-    animation-delay:1s;
-    animation-fill-mode:forwards;
 }
 
 .options {

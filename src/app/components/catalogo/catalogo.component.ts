@@ -15,11 +15,13 @@ export class CatalogoComponent implements OnInit {
   products:any[] = [];
   allProducts: any[] = [];
   pageEvent: PageEvent;
+  loading: boolean;
 
 
   constructor(private catalogoService:CatalogoService , private sanitizer: DomSanitizer, public dialog:MatDialog) { }
 
   ngOnInit() {
+    this.loading = true;
     this.catalogoService.getProducts().subscribe(
       (products) => {
         products.forEach((productData: any) => {
@@ -29,6 +31,7 @@ export class CatalogoComponent implements OnInit {
           })
         })
         this.changeProducts(0 , 4);
+        this.loading = false
       }
     )
   }

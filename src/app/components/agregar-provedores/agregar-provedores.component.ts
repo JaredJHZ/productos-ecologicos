@@ -8,6 +8,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class AgregarProvedoresComponent implements OnInit {
 
+  loading: boolean = false; 
+  exito: boolean = false;
+
   public providerForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
     telefono: new FormControl('', Validators.required),
@@ -25,9 +28,15 @@ export class AgregarProvedoresComponent implements OnInit {
   }
 
   addProvider() {
+    this.loading = true;
     this.proveedorService.createProvider(this.providerForm.value).then(
       (data) => {
-        console.log(data);
+        this.loading = false;
+        this.exito = true;
+        setTimeout(() => {
+          this.exito = false;
+          this.providerForm.reset();
+        }, 1000);
       }
     )
   }

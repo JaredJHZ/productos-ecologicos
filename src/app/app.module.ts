@@ -28,6 +28,7 @@ import { TrackScrollDirective } from './scroll-directive';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { AnimateComponent } from './animate/animate.components';
 import { LoginComponent } from './components/login/login.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { LoginComponent } from './components/login/login.component';
     AcercaComponent,
     TrackScrollDirective,
     AnimateComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

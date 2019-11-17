@@ -1,0 +1,12 @@
+.spinner-container {
+    margin-top: 25vh;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.spinner-container span {
+    margin-top: 10px;
+}

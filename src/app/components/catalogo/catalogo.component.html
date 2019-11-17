@@ -1,4 +1,4 @@
-<article class="catalogo">
+<article *ngIf="!loading" class="catalogo">
     <header>
         <app-buscador (buscar)="buscar($event)" ></app-buscador>
     </header>
@@ -31,3 +31,5 @@
       </mat-paginator>
     </body>
 </article>
+
+<app-loading *ngIf="loading"></app-loading>

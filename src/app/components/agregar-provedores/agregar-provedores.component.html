@@ -3,7 +3,11 @@
         <h1>Agregar proveedor a la base de datos</h1>
     </header>
     <body>
-        <form class="example-form"  (ngSubmit)="addProvider(providerForm.value)" [formGroup]="providerForm" >
+
+      
+        <app-loading *ngIf="loading"></app-loading>
+
+        <form *ngIf="!loading" class="example-form"  (ngSubmit)="addProvider(providerForm.value)" [formGroup]="providerForm" >
             <mat-form-field class="example-full-width">
               <input formControlName="nombre" matInput placeholder="Nombre del proveedor" value="">
             </mat-form-field>
@@ -41,5 +45,9 @@
               <button mat-flat-button color="primary">Agregar</button>
             
           </form>
+
+          <div *ngIf="exito">
+              <h5 style="text-align: center;">Proveedor agregado</h5>
+          </div>
     </body>
 </article>
