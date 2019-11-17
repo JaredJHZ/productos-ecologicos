@@ -31,6 +31,10 @@ export class MenuService {
     {
       nombre:"Agregar producto",
       ruta:'agregar-producto'
+    },
+    {
+      nombre:"Lista de productos",
+      ruta:'lista-productos'
     }
   ]
 

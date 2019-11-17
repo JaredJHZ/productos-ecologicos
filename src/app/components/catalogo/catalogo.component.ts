@@ -53,11 +53,13 @@ export class CatalogoComponent implements OnInit {
   }
 
   openContactInfo(data) {
+    console.log(data);
+    let info = data.data;
     const dialogRef = this.dialog.open(ContactInfoComponent, {
       width: '400px',
       data: {
-        id: data.vendedor,
-        img: data.imagen
+        id: info.vendedor,
+        img: info.imagen
       }
     })
   }

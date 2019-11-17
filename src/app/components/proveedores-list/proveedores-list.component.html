@@ -1,4 +1,4 @@
-<div class="table">
+<div *ngIf="providers.length >= 1" class="table">
 
     <mat-form-field>
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filtrar datos">
@@ -26,6 +26,16 @@
         <th mat-header-cell *matHeaderCellDef> Teléfono </th>
         <td mat-cell *matCellDef="let item"> {{item.phone}} </td>
       </ng-container>
+
+      <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let item">
+            <div class="buttons">
+                <button mat-raised-button color="primary">Editar</button>
+                <button (click)="eliminar(item.id, item.name)" mat-raised-button color="warn">Eliminar</button>
+            </div>
+          </td>
+      </ng-container>
   
       
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -35,3 +45,9 @@
     </table>
     <mat-paginator class="pages" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
+
+<div *ngIf="providers.length <= 0 && !loading">
+  <h1>No hay proveedores registrados</h1>
+</div>
+
+<app-loading *ngIf="loading"></app-loading>

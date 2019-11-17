@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,5 +21,9 @@ export class ProveedorService {
 
   public getProvider(id) {
     return this.firestore.collection('providers').doc(id).snapshotChanges();
+  }
+
+  public deleteProvider(id) {
+    return this.firestore.collection('providers').doc(id).delete();
   }
 }

@@ -1,0 +1,11 @@
+<div class="eliminar">
+        <h1>Eliminar</h1>
+        <h2>¿Desea eliminar el producto?</h2>
+        <h2>{{data.nombre}}</h2>
+        <h3>Del vendedor</h3>
+        <h2>{{data.vendedor}}</h2>
+        <div class="buttons">
+            <button (click)="cancelar()" mat-raised-button color="primary">Cancelar</button>
+            <button (click)="eliminar()" mat-raised-button color="warn">Eliminar</button>
+        </div>
+</div>

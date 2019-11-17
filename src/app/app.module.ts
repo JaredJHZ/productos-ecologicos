@@ -29,6 +29,10 @@ import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { AnimateComponent } from './animate/animate.components';
 import { LoginComponent } from './components/login/login.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { SelectionPopupComponent } from './components/selection-popup/selection-popup.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { ProductsListComponent } from './components/products-list/products-list.component';
+import { InfoProductComponent } from './components/info-product/info-product.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,11 @@ import { LoadingComponent } from './components/loading/loading.component';
     TrackScrollDirective,
     AnimateComponent,
     LoginComponent,
-    LoadingComponent
+    LoadingComponent,
+    SelectionPopupComponent,
+    AdminComponent,
+    ProductsListComponent,
+    InfoProductComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +76,6 @@ import { LoadingComponent } from './components/loading/loading.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ContactInfoComponent]
+  entryComponents: [ContactInfoComponent, SelectionPopupComponent, InfoProductComponent]
 })
 export class AppModule { }

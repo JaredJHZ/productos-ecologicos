@@ -37,7 +37,6 @@ export class ToolbarComponent implements OnInit {
     this.loginService.getManagers().subscribe(
       (managers) => {
         managers.forEach((manager:any) => {
-          console.log(manager);
           this.managers.push(manager.payload.doc.data().email);
         } )
         this.isLogin = this.loginService.loginFlow.subscribe(

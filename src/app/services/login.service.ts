@@ -20,7 +20,7 @@ export class LoginService {
 
   
   login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
+    return this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
       (data)=> {
         this.isLogin.next(data.user);
         this.saveSession(data.user);
