@@ -20,6 +20,14 @@ export class CatalogoService {
     return this.firestore.collection('products').add(data);
    }
 
+   public getProduct(id) {
+    return this.firestore.collection('products').doc(id).snapshotChanges();
+  }
+
+  public updateProduct(id, data) {
+    return this.firestore.collection('products').doc(id).update(data);
+  }
+
    public deleteProductsFromProvider(id) {
      this.firestore.collection('products').snapshotChanges().subscribe(
        (products) => {

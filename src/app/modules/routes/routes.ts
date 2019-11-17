@@ -9,6 +9,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { AdminComponent } from 'src/app/components/admin/admin.component';
 import { ProductsListComponent } from 'src/app/components/products-list/products-list.component';
 import { EditarProveedorComponent } from 'src/app/components/editar-proveedor/editar-proveedor.component';
+import { EditarProductoComponent } from 'src/app/components/editar-producto/editar-producto.component';
 
 const appRoutes: Routes = [
     {
@@ -39,6 +40,10 @@ const appRoutes: Routes = [
     {
         path:'agregar-producto',
         component: AgregarProductoComponent
+    },
+    {
+        path:'editar-producto/:id',
+        component:EditarProductoComponent
     },
     {
         path:'acerca',

@@ -1,0 +1,53 @@
+<article  wmAnimate="fadeIn" speed="lower" aos *ngIf="!loading" class="container">
+        <header>
+            <h1>Actualizar datos del producto</h1>
+        </header>
+        <body>
+            <app-loading *ngIf="loading"></app-loading>
+            <form class="example-form"  (ngSubmit)="uploadImageAndData(productForm.value)" [formGroup]="productForm" >
+                    <mat-form-field class="example-full-width">
+                      <input formControlName="nombre" matInput placeholder="Nombre del producto" >
+                    </mat-form-field>
+        
+                    <mat-form-field class="example-full-width">
+                        <input formControlName="costo" matInput placeholder="Costo del producto" >
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                      <mat-label>Tipo de membresía</mat-label>
+                      <mat-select formControlName="membresia">
+                        <mat-option value="Premium">Premium</mat-option>
+                        <mat-option value="Free">Gratis</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field>
+                      <mat-label>Vendedor</mat-label>
+                      <mat-select formControlName="vendedor">
+                        <mat-option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+    
+                    <div class="archivo">
+                        <div class="upload-btn-wrapper">
+                            <button *ngIf="!nombreArchivo" class="btn">Subir imágen</button>
+                            <span *ngIf="nombreArchivo">{{nombreArchivo}}</span>
+                            <input class="custom-file-input" type="file" (change)="addImage($event)" placeholder="seleccionar">
+                          </div>
+                    </div>
+    
+                    <div class="buttons">
+                            <button type="button" (click)="cancelar()" mat-flat-button color="warn">Cancelar</button>
+                            <button mat-flat-button color="primary">Actualizar</button>
+                        </div>    
+                    
+                  </form>
+
+              <div *ngIf="exito">
+                  <h5 style="text-align: center;">Producto actualizado</h5>
+              </div>
+        </body>
+    </article>
+    
+
+    <app-loading *ngIf="loading"></app-loading>

@@ -41,9 +41,6 @@ export class AgregarProductoComponent implements OnInit {
     membresia: new FormControl('', Validators.required)
   });
 
-  addProduct() {
-    console.log(this.productForm.value);
-  }
 
   addImage(event) {
     this.mensajeArchivo = `Archivo preparado ${event.target.files[0].name}`;
