@@ -10,6 +10,8 @@ import { AdminComponent } from 'src/app/components/admin/admin.component';
 import { ProductsListComponent } from 'src/app/components/products-list/products-list.component';
 import { EditarProveedorComponent } from 'src/app/components/editar-proveedor/editar-proveedor.component';
 import { EditarProductoComponent } from 'src/app/components/editar-producto/editar-producto.component';
+import { AdminGuard } from 'src/app/guards/admin.guard';
+import { ContactoComponent } from 'src/app/components/contacto/contacto.component';
 
 const appRoutes: Routes = [
     {
@@ -23,27 +25,33 @@ const appRoutes: Routes = [
     },
     {
         path:'agregar-proveedor',
-        component: AgregarProvedoresComponent 
+        component: AgregarProvedoresComponent ,
+        canActivate:[AdminGuard]
     },
     {
         path:'lista-proveedores',
-        component: ProveedoresListComponent
+        component: ProveedoresListComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'lista-productos',
-        component: ProductsListComponent
+        component: ProductsListComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'editar-proveedor/:id',
-        component:EditarProveedorComponent
+        component:EditarProveedorComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'agregar-producto',
-        component: AgregarProductoComponent
+        component: AgregarProductoComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'editar-producto/:id',
-        component:EditarProductoComponent
+        component:EditarProductoComponent,
+        canActivate:[AdminGuard]
     },
     {
         path:'acerca',
@@ -55,12 +63,22 @@ const appRoutes: Routes = [
     },
     {
         path:'admin',
-        component: AdminComponent
+        component: AdminComponent,
+        canActivate:[AdminGuard]
+    },
+    {
+        path:'contacto',
+        component:ContactoComponent
     },
     {
         path:'',
         redirectTo:'/home',
         pathMatch:'full'
+    },
+    {
+        path:'**',
+        redirectTo:'/home'
+
     }
 ]
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { trigger, state, transition, animate, style } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -48,7 +49,7 @@ export class HomeComponent implements OnInit {
   bookAnimation:string ='start';
   contentAnimation:string = 'start';
   
-  constructor(public loginService:LoginService) { 
+  constructor(public loginService:LoginService, private router:Router) { 
     
   }
 
@@ -59,6 +60,13 @@ export class HomeComponent implements OnInit {
     }, 500);
   }
 
+  irCatalogo() {
+    this.router.navigate(['catalogo']);
+  }
+
+  irContacto() {
+    this.router.navigate(['contacto']);
+  }
  
 
 }

@@ -16,6 +16,10 @@ export class MenuService {
     {
       nombre:'Acerca de',
       ruta:'acerca'
+    },
+    {
+      nombre:'Contacto',
+      ruta:'contacto'
     }
   ];
 

@@ -11,8 +11,8 @@
                         <h2>El proyecto GreenBook está orientado a que los compradores volteen a ver alternativas ecológicas de sus productos favoritos</h2>
                     </div>
                     <div class="options">
-                        <button mat-raised-button color="primary">Catálogo de productos</button>
-                        <button (click)="login()" mat-raised-button color="accent">Contactanos</button>
+                        <button (click)="irCatalogo()" mat-raised-button color="primary">Catálogo de productos</button>
+                        <button (click)="irContacto()" [routerLink]="contacto" mat-raised-button color="accent">Contactanos</button>
                     </div>
                 </aside>
             
