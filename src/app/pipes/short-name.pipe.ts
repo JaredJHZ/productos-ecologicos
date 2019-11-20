@@ -6,7 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ShortNamePipe implements PipeTransform {
 
   transform(name: string): any {
-    return name.split(' ')[0];
+    let nombre = name.split(' ');
+    if (nombre.length > 2) {
+      return nombre[2];
+    }  else {
+      return nombre[0];
+    }
   }
 
 }

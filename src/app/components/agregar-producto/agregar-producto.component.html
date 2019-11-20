@@ -9,7 +9,7 @@
                 <mat-progress-bar mode="determinate" [value]="porcentaje"></mat-progress-bar>
             </div>
             
-            <form *ngIf="finalizado" class="example-form"  (ngSubmit)="uploadImageAndData(productForm.value)" [formGroup]="productForm" >
+            <form *ngIf="finalizado" class="example-form"  (ngSubmit)="uploadImageAndData()" [formGroup]="productForm" >
                 <mat-form-field class="example-full-width">
                   <input formControlName="nombre" matInput placeholder="Nombre del producto" value="">
                 </mat-form-field>

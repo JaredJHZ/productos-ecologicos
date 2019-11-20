@@ -4,7 +4,7 @@
         </header>
         <body>
             <app-loading *ngIf="loading"></app-loading>
-            <form class="example-form"  (ngSubmit)="uploadImageAndData(productForm.value)" [formGroup]="productForm" >
+            <form class="example-form"  (ngSubmit)="uploadImageAndData()" [formGroup]="productForm" >
                     <mat-form-field class="example-full-width">
                       <input formControlName="nombre" matInput placeholder="Nombre del producto" >
                     </mat-form-field>
@@ -42,10 +42,6 @@
                         </div>    
                     
                   </form>
-
-              <div *ngIf="exito">
-                  <h5 style="text-align: center;">Producto actualizado</h5>
-              </div>
         </body>
     </article>
     

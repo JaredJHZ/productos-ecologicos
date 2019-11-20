@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
         left:'-10vw'
       })),
       state('stop', style({
-        left:'5vw'
+        left:'6vw'
       })),
       transition('start => stop', [
         animate('1s')
@@ -26,10 +26,10 @@ import { Router } from '@angular/router';
     trigger('RightLeft', [
       // ...
       state('start', style({
-        right:'-10vw'
+        right:'-50vw'
       })),
       state('stop', style({
-        right:'5vw'
+        right:'-10px'
       })),
       transition('start => stop', [
         animate('1s')

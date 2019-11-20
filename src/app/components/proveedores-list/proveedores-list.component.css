@@ -24,3 +24,13 @@ table {
 .pages {
     margin-top: 20px;
 }
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    .table {
+        width: 400px;
+    }
+
+    table {
+        width: 400px;
+    }
+}

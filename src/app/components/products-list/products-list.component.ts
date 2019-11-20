@@ -73,4 +73,8 @@ export class ProductsListComponent implements OnInit {
     this.router.navigate(['editar-producto', id]);
   }
 
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 }

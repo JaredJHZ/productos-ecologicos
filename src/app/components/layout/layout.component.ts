@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
 import { LoginService } from 'src/app/services/login.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
@@ -15,6 +16,8 @@ export class LayoutComponent implements OnInit {
   events: string[] = [];
   opened: boolean;
   user:any;
+
+  mode = new FormControl('push');
 
 
   constructor(public loginService:LoginService) {

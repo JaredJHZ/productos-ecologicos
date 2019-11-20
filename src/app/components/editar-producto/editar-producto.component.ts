@@ -21,7 +21,7 @@ export class EditarProductoComponent implements OnInit {
   url:string;
   id: string;
 
-  private loading:boolean = true;
+  loading:boolean = true;
 
   public productForm = new FormGroup({
     nombre: new FormControl('', Validators.required),

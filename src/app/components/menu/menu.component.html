@@ -4,7 +4,7 @@
                 <li class="link"><a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre'] | shortName }}</a></li>
         </div>
 </ul>
-<div class="menu">
-        <p>{{user}}</p>
+<div *ngIf="user" class="menu">
+        <p>{{user.displayName}}</p>
         <button *ngIf="user" (click)="cerrarSesionHandler()" mat-raised-button color="warn">Cerrar sesión</button>
 </div>

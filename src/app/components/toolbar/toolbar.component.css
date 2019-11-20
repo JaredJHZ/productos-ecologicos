@@ -58,4 +58,8 @@
     .openSide {
         display: flex;
     }
+
+    .session {
+        display: none;
+    }
 }

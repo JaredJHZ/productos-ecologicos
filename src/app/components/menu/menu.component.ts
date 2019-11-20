@@ -1,6 +1,7 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { MenuService } from 'src/app/services/menu.service';
 import { LoginService } from 'src/app/services/login.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -10,13 +11,43 @@ import { LoginService } from 'src/app/services/login.service';
 export class MenuComponent implements OnInit {
 
   @Input()
-  user:string;
+  user:any;
+
+  private isLogin: Subscription = null;
 
   
   items: object[];
 
+  managers: any[]= [];
+
   constructor(private menuService:MenuService, private loginService:LoginService) {
-    this.items = this.menuService.items;
+    let permission = localStorage.getItem('permission');
+    if (permission === 'manager') {
+      this.items = this.menuService.admin;
+    } else {
+      this.items = this.menuService.items;
+    }
+
+    this.loginService.getManagers().subscribe(
+      (managers) => {
+        managers.forEach((manager:any) => {
+          this.managers.push(manager.payload.doc.data().email);
+        } )
+        this.isLogin = this.loginService.loginFlow.subscribe(
+          (data:any) => {
+            if (data) {
+              let isAdmin = this.isAdmin(data.email);
+              if (isAdmin) {
+                this.items = this.menuService.admin;
+              }
+            } else {
+              this.items = this.menuService.items;
+            }
+          }
+        )
+      }
+    )
+
    }
 
   ngOnInit() {
@@ -24,6 +55,16 @@ export class MenuComponent implements OnInit {
 
   cerrarSesionHandler() {
     this.loginService.logout();
+    this.loginService.deleteSession();
+  }
+
+  isAdmin (email) {
+    for(let manager of this.managers) {
+      if (email === manager) {
+        return true;
+      }
+    }
+    return false;
   }
 
 }

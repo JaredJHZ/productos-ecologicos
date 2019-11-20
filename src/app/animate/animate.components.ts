@@ -21,14 +21,14 @@ export class wmRect {
 })
 export class AnimateComponent implements OnInit, OnDestroy {
 
-  readonly timings = { slower: '3s', slow: '2s', normal: '1s', fast: '500ms', faster: '300ms' };
-  private  replay$ = new Subject<boolean>();
-  private  dispose$ = new Subject<void>();
+  public timings = { slower: '3s', slow: '2s', normal: '1s', fast: '500ms', faster: '300ms' };
+  public  replay$ = new Subject<boolean>();
+  public  dispose$ = new Subject<void>();
 
-  constructor(private elm: ElementRef, private scroll: ScrollDispatcher, private zone: NgZone) {}
+  constructor(public elm: ElementRef, public scroll: ScrollDispatcher, public zone: NgZone) {}
 
-  private get idle() { return { value: 'idle' }; }
-  private get play() { 
+  public get idle() { return { value: 'idle' }; }
+  public get play() { 
     return { 
       value: this.animate,
       //delay: this.delay, 
@@ -45,7 +45,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   @Input() speed: wmAnimateSpeed = 'normal';
 
   @HostBinding('@animate')
-  private trigger: string | {} = 'idle';
+  public trigger: string | {} = 'idle';
 
   /** Disables the animation */
   @Input('disabled') set disableAnimation(value: boolean) { this.disabled = coerceBooleanProperty(value); }
@@ -54,11 +54,11 @@ export class AnimateComponent implements OnInit, OnDestroy {
 
   /** Emits at the end of the animation */
   @Output() start = new EventEmitter<void>();  
-  @HostListener('@animate.start') private animationStart() { this.start.emit(); }
+  @HostListener('@animate.start') public animationStart() { this.start.emit(); }
 
   /** Emits at the end of the animation */
   @Output() done = new EventEmitter<void>();  
-  @HostListener('@animate.done') private animationDone() { this.done.emit(); }
+  @HostListener('@animate.done') public animationDone() { this.done.emit(); }
 
   /** When true, keeps the animation idle until the next replay triggers */
   @Input('paused') set pauseAnimation(value: boolean) { this.paused = coerceBooleanProperty(value); }
@@ -100,25 +100,25 @@ export class AnimateComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() { this.dispose(); }
 
-  private dispose() {
+  public dispose() {
     this.dispose$.next(); 
     this.dispose$.complete();
   }
 
   // Triggers the animation
-  private animateTrigger(elm: ElementRef<HTMLElement>): Observable<boolean> {
+  public animateTrigger(elm: ElementRef<HTMLElement>): Observable<boolean> {
 
     return this.animateReplay().pipe( flatMap( trigger => this.aos ? this.animateOnScroll(elm) : of(trigger)) );
   }
 
   // Triggers the animation deferred
-  private animateReplay(): Observable<boolean> {
+  public animateReplay(): Observable<boolean> {
 
     return this.replay$.pipe( takeUntil(this.dispose$), delay(0), startWith(!this.paused) );
   }
 
   // Triggers the animation on scroll
-  private animateOnScroll(elm: ElementRef<HTMLElement>): Observable<boolean> {
+  public animateOnScroll(elm: ElementRef<HTMLElement>): Observable<boolean> {
 
     // Returns an AOS observable
     return this.scroll.ancestorScrolled(elm, 100).pipe(
@@ -140,11 +140,11 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   // Computes the element visibility ratio
-  private get visibility() { 
+  public get visibility() { 
     return this.intersectRatio( this.clientRect(this.elm), this.getScrollingArea(this.elm) );
   }
 
-  private intersectRatio(rect: wmRect, cont: wmRect): number {
+  public intersectRatio(rect: wmRect, cont: wmRect): number {
 
     // Return 1.0 when the element is fully within its scroller container
     if(rect.left > cont.left && rect.top > cont.top && rect.right < cont.right && rect.bottom < cont.bottom) { 
@@ -161,7 +161,7 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   // Returns the rectangular surface area of the element's scrolling container
-  private getScrollingArea(elm: ElementRef<HTMLElement>): wmRect {
+  public getScrollingArea(elm: ElementRef<HTMLElement>): wmRect {
     // Gets the cdkScolling container, if any
     const scroller = this.scroll.getAncestorScrollContainers(elm).pop();
     // Returns the element's most likely scrolling container area
@@ -169,12 +169,12 @@ export class AnimateComponent implements OnInit, OnDestroy {
   }
 
   // Element client bounding rect helper
-  private clientRect(elm: ElementRef<HTMLElement>): wmRect {
+  public clientRect(elm: ElementRef<HTMLElement>): wmRect {
     const el = !!elm && elm.nativeElement;
     return !!el && el.getBoundingClientRect();
   }
 
-  private windowRect(): wmRect {
+  public windowRect(): wmRect {
     return new wmRect(0,0, window.innerWidth, window.innerHeight);
   }
 }

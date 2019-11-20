@@ -10,7 +10,9 @@
                 <mat-card-title>{{product.data.nombre}}</mat-card-title>
                 <mat-card-subtitle>Precio: ${{product.data.costo}}</mat-card-subtitle>
               </mat-card-header>
-              <img mat-card-image [src]="photoURL(product.data.imagen)" alt="foto de un producto">
+              <div class="img">
+                <img mat-card-image [src]="photoURL(product.data.imagen)" alt="foto de un producto">
+              </div>
               <mat-card-content>
                 <p style="text-align: center;">
                   Obtenlo ya!
