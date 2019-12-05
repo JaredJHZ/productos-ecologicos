@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ProveedorService } from 'src/app/services/proveedor.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-info',
@@ -12,7 +13,7 @@ export class ContactInfoComponent implements OnInit {
   proveedor:any;
   loading: boolean = true;
 
-  constructor( public dialogRef: MatDialogRef<ContactInfoComponent>,  @Inject(MAT_DIALOG_DATA) public data: any, private proveederService:ProveedorService) {
+  constructor( public dialogRef: MatDialogRef<ContactInfoComponent>,  @Inject(MAT_DIALOG_DATA) public data: any, private proveederService:ProveedorService, private router:Router) {
       this.loading = true;
       this.proveederService.getProvider(this.data.id).subscribe(
         (data) => {
@@ -21,6 +22,15 @@ export class ContactInfoComponent implements OnInit {
         }
       )
    }
+
+   irProducto(id) {
+    this.router.navigate(['producto',id]);
+    this.cancelar();
+   }
+
+   cancelar() {
+    this.dialogRef.close();
+  }
 
   ngOnInit() {
   }

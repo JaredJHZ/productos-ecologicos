@@ -1,0 +1,66 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$main: (
+        50 : #dcedc8,
+        100 : #c5e1a5,
+        200 : #a5d6a7,
+        300 : #c8e6c9,
+        400 : #bdbdbd,
+        500 : #212121,
+        600 : #445382,
+        700 : #d2e45c,
+        contrast: (
+            50 : #000000,
+            100 : #000000,
+            200 : #000000,
+            300 : #000000,
+            400 : #ffffff,
+            500 : #ffffff,
+            600 : #ffffff,
+            700 : #ffffff,
+        )
+);
+
+
+$secondary: (
+    50: #ffffff,
+    100: #b4cb7c,
+    200: #aac46a,
+    300: #9fbd58,
+    400: #94b447,
+    500: #85a240,
+    600: #768f39,
+    700: #677d31,
+    800: #305687,
+    900: #284770,
+    A100: #94b447,
+    A200: #94b447,
+    A400: #94b447,
+    A700: #94b447,
+    contrast: (
+        50: WHITE,
+        100: WHITE,
+        200: WHITE,
+        300: WHITE,
+        400: WHITE,
+        500: white,
+        600: white,
+        700: white,
+        800: white,
+        900: white,
+        A100: WHITE,
+        A200: WHITE,
+        A400: WHITE,
+        A700: white,
+    )
+);
+
+$my-theme-primary: mat-palette($main, A400, A300 , A200);
+$my-theme-accent : mat-palette($secondary, A200, A100, A400);
+$my-theme-warn: mat-palette($mat-red);
+
+$my-theme: mat-light-theme($my-theme-primary, $my-theme-accent, $my-theme-warn);
+
+@include angular-material-theme($my-theme);

@@ -25,6 +25,8 @@ export class ProductsListComponent implements OnInit {
     this.catalogoService.getProducts().subscribe(
       (data) => {
         this.products = [];
+        let lengthData = data.length;
+        let  num = 0;
         data.forEach(
           (product: any) => {
             let vendedorId = product.payload.doc.data().vendedor;
@@ -39,13 +41,16 @@ export class ProductsListComponent implements OnInit {
                       nombre:nombreProducto,
                       id: idProducto
                     });
-                  }
+                    num+=1;
+                    if (num === lengthData) {
+                      this.dataSource = new MatTableDataSource<any>(this.products);
+                      this.dataSource.paginator = this.paginator;
+                      this.loading = false;
+                    }
+                  },
                 )
           }
         )
-        this.loading = false;
-        this.dataSource = new MatTableDataSource<any>(this.products);
-        this.dataSource.paginator = this.paginator;
       }
     )
   }
@@ -57,6 +62,7 @@ export class ProductsListComponent implements OnInit {
   eliminar(id , name, vendedor) {
     const dialogRef = this.dialog.open(InfoProductComponent, {
       width: '400px',
+      height:'380px',
       data: {
         id: id,
         nombre: name,

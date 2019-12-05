@@ -2,6 +2,42 @@
     text-align: center;
 }
 
+.layout {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.planes {
+    border: 2px solid #CBE54E;
+    width: 60%;
+    padding: 10px;
+}
+
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.title h1 {
+    border-bottom: 2px solid #94b447;
+    width: 100%;
+}
+
 img {
     width:400px;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    img {
+        width: 80%;
+    }
+
+    .planes {
+        padding: 20px;
+    }
 }

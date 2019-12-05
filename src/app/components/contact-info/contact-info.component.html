@@ -1,9 +1,21 @@
 <div *ngIf ="proveedor && !loading"class="modal">
     <h5 >Información del vendedor</h5>
-    <img [src]="data.img" alt="producto" />
-    <p>Para comprar este producto favor de contactar a: <br> <strong>{{proveedor.nombre}}</strong></p>
+    <ngx-image-zoom
+    class="img"
+    [thumbImage]="data.img"
+    [fullImage]="data.img"
+    [magnification]="0.5" 
+    [enableScrollZoom]="true"
+    [enableLens]="true"
+    [zoomMode]="'click'"
+    [lensWidth]="300"
+    [lensHeight]="300"
+    circularLens="true"
+    ></ngx-image-zoom>
+    <p><strong>{{proveedor.nombre}}</strong></p>
     <p>Teléfono: {{proveedor.telefono}}</p>
     <p>Email: {{proveedor.email}}</p>
+    <button mat-flat-button color="accent" (click)="irProducto(data.productoId)" >Comentarios del producto</button>
 </div>
 
 

@@ -7,19 +7,11 @@ export class MenuService {
   items: object[] = [
     {
       nombre:'Inicio',
-      ruta:'home'
-    },
-    {
-      nombre:'Catálogo',
       ruta:'catalogo'
     },
     {
       nombre:'Acerca de',
       ruta:'acerca'
-    },
-    {
-      nombre:'Contacto',
-      ruta:'contacto'
     }
   ];
 

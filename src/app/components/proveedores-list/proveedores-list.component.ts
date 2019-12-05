@@ -54,6 +54,7 @@ export class ProveedoresListComponent implements OnInit {
   eliminar(id, name) {
     const dialogRef = this.dialog.open(SelectionPopupComponent, {
       width: '400px',
+      height:'380px',
       data: {
         id: id,
         nombre: name

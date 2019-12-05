@@ -33,6 +33,15 @@
                   </mat-select>
                 </mat-form-field>
 
+                <mat-form-field>
+                    <mat-label>Categoria</mat-label>
+                    <mat-select formControlName="categoria">
+                      <mat-option value="higiene">higiene</mat-option>
+                      <mat-option value="higiene">belleza</mat-option>
+                      <mat-option value="higiene">moda</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
                 <div class="archivo">
                     <div class="upload-btn-wrapper">
                         <button *ngIf="!nombreArchivo" class="btn">Subir imágen</button>

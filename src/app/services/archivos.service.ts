@@ -7,11 +7,39 @@ export class ArchivosService {
 
   constructor(private storage: AngularFireStorage) { }
 
-  public subirArchivo(nombreArchivo: string, datos: any) {
-    return this.storage.upload(nombreArchivo, datos);
+  public subirArchivoPrincipal(nombreArchivo: string, datos: any, id) {
+    return new Promise((resolve, reject) => {
+      this.storage.upload(`imagenes/${id}/principal/${nombreArchivo}`, datos).then(
+        (data) => {
+          if(data.state === 'success') {
+            this.storage.ref(`imagenes/${id}/principal/${nombreArchivo}`).getDownloadURL()
+                .subscribe(
+                  (url) => {
+                    resolve(url);
+                  }
+                )
+          }
+        }
+      ).catch(e => console.log(e))
+    });
   }
 
-  public referenciaArchivo(nombreArchivo: string) {
-    return this.storage.ref(nombreArchivo);
+
+  public subirArchivoSecundario(nombreArchivo: string, datos: any, id) {
+    return new Promise((resolve, reject) => {
+      this.storage.upload(`imagenes/${id}/carrusel/${nombreArchivo}`, datos).then(
+        (data) => {
+          if (data.state === 'success') {
+            this.storage.ref(`imagenes/${id}/carrusel/${nombreArchivo}`)
+              .getDownloadURL()
+              .subscribe(
+                (url) => {
+                  resolve(url);
+                }
+              )
+          }
+        }
+      )
+    })  
   }
 }

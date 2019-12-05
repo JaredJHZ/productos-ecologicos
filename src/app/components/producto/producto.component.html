@@ -1,0 +1,70 @@
+<div *ngIf="loading">
+    Cargando...
+</div>
+
+<div *ngIf="vendedor && !loading" class="producto">
+    
+    <h1>{{producto.nombre}}</h1>
+    <div class="slider">
+        <button (click)="imagenAnterior()" mat-fab aria-label="Example icon-button with a heart icon">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        <ngx-image-zoom
+        [@fade]="contentAnimation"
+        class="img"
+        [thumbImage]="producto.imagenes[i]"
+        [fullImage]="producto.imagenes[i]"
+        [magnification]="0.3" 
+        [enableScrollZoom]="true"
+        [enableLens]="true"
+        [zoomMode]="'click'"
+        [lensWidth]="300"
+        [lensHeight]="300"
+        circularLens="true"
+        ></ngx-image-zoom>
+        <button (click)="siguienteImagen()" mat-fab aria-label="Example icon-button with a heart icon">
+            <mat-icon>arrow_forward</mat-icon>
+          </button>
+    </div>
+
+    <div class="icono">
+            <mat-icon aria-hidden="false" aria-label="Example home icon">{{icon}}</mat-icon>
+            {{iconText}}
+    </div>
+
+    <h2>{{vendedor.nombre}}</h2>
+    <h3>${{producto.costo}}</h3>
+    <div *ngIf="sesionIniciada" class="badgesArea">
+            <p>¿Te interesa el producto?</p>
+            <div class="buttonsBadges">
+                    <div class="yesBadge">
+                            <button (click)="hacerReaccion('si')" [style.color]="getBackgroundColor('si')" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                    <mat-icon>thumb_up</mat-icon>
+                            </button>
+                        </div>
+                        <div class="noBadge">
+                            <button (click)="hacerReaccion('no')" [style.color]="getBackgroundColor('no')" mat-icon-button aria-label="Example icon-button with a heart icon">
+                                    <mat-icon>thumb_down</mat-icon>
+                            </button>
+                        </div>
+            </div>
+    
+    </div>
+    <h5 *ngIf="vendedor.pagina"><a href={{vendedor.pagina}} target="_blank">ir a la página del vendedor</a></h5>
+    <div *ngIf="sesionIniciada" class="hacerComentario">
+        <textarea [(ngModel)]="comentario" name="comentario" id="" cols="30" rows="10"></textarea>
+        <button class="btn" mat-flat-button color="warn" (click)="hacerComentario()">Hacer un comentario</button>
+    </div>
+    <div *ngIf="!sesionIniciada">
+        <button class="btn" mat-flat-button color="accent" (click)="login()">Iniciar sesión con Google</button>
+    </div>
+    <div class="commentsArea">
+        <div *ngFor="let comment of comentarios" class="comment">
+            <p>{{comment.comentario}}</p>
+            <p> <small>Hecho por: <strong>{{comment.usuario}}</strong></small></p>
+        </div>
+    </div>
+    
+</div>
+
+

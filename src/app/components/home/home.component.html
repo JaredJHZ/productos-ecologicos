@@ -1,6 +1,6 @@
 <div class="main">
     <header>
-        <h1 class="center">The GreenBook</h1>
+        <h1 class="center">The GreenBook Project</h1>
     </header>
             <article class="content">
                 <aside class="left" [@leftRight]="bookAnimation">
@@ -11,10 +11,15 @@
                         <h2>El proyecto GreenBook está orientado a que los compradores volteen a ver alternativas ecológicas de sus productos favoritos</h2>
                     </div>
                     <div class="options">
-                        <button (click)="irCatalogo()" mat-raised-button color="primary">Catálogo de productos</button>
-                        <button (click)="irContacto()"  mat-raised-button color="accent">Contactanos</button>
+                        <button (click)="irCatalogo()" mat-raised-button color="accent">Catálogo de productos</button>
                     </div>
                 </aside>
             
+            </article>
+    <article>
+        <app-contacto></app-contacto>
+    </article>
+    <article>
+        <app-acerca></app-acerca>
     </article>
 </div>

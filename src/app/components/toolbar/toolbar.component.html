@@ -2,7 +2,7 @@
     <mat-toolbar-row>
         <mat-icon *ngIf="!abierto" class="openSide" aria-hidden="false" aria-label="Example heart icon" (click)="abrirMenuHandler()">keyboard_arrow_right</mat-icon>
         <mat-icon *ngIf="abierto" class="openSide" aria-hidden="false" aria-label="Example heart icon" (click)="abrirMenuHandler()">keyboard_arrow_left</mat-icon>
-        <span style="color:black">GreenBook</span>
+        <img src="assets/img/logo.png" alt="logo GreenBook">
         <ul class="links" *ngIf="items">
             <li  *ngFor="let item of items">
                 <a [routerLink]="item['ruta']" routerLinkActive="active">{{item['nombre']}}</a>

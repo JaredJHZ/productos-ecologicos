@@ -12,15 +12,17 @@ import { EditarProveedorComponent } from 'src/app/components/editar-proveedor/ed
 import { EditarProductoComponent } from 'src/app/components/editar-producto/editar-producto.component';
 import { AdminGuard } from 'src/app/guards/admin.guard';
 import { ContactoComponent } from 'src/app/components/contacto/contacto.component';
+import { ProductoComponent } from 'src/app/components/producto/producto.component';
+import { HtmlParser } from '@angular/compiler';
 
 const appRoutes: Routes = [
     {
-        path:'home',
+        path:'acerca',
         component: HomeComponent
         
     },
     {
-        path:'catalogo',
+        path:'home',
         component: CatalogoComponent
     },
     {
@@ -54,10 +56,6 @@ const appRoutes: Routes = [
         canActivate:[AdminGuard]
     },
     {
-        path:'acerca',
-        component: AcercaComponent
-    },
-    {
         path: 'login',
         component: LoginComponent
     },
@@ -67,8 +65,8 @@ const appRoutes: Routes = [
         canActivate:[AdminGuard]
     },
     {
-        path:'contacto',
-        component:ContactoComponent
+        path:'producto/:id',
+        component:ProductoComponent
     },
     {
         path:'',

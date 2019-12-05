@@ -36,6 +36,9 @@ import { InfoProductComponent } from './components/info-product/info-product.com
 import { EditarProveedorComponent } from './components/editar-proveedor/editar-proveedor.component';
 import { EditarProductoComponent } from './components/editar-producto/editar-producto.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import {NgxImageZoomModule} from 'ngx-image-zoom';
+import { ProductoComponent } from './components/producto/producto.component';
+import { SlickModule } from 'ngx-slick';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,8 @@ import { ContactoComponent } from './components/contacto/contacto.component';
     InfoProductComponent,
     EditarProveedorComponent,
     EditarProductoComponent,
-    ContactoComponent
+    ContactoComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +81,9 @@ import { ContactoComponent } from './components/contacto/contacto.component';
     AngularFireStorageModule,
     AngularFireAuthModule,
     NgsRevealModule,
-    ScrollDispatchModule
+    ScrollDispatchModule,
+    NgxImageZoomModule.forRoot() ,
+    SlickModule.forRoot()
 
   ],
   providers: [],

@@ -20,6 +20,7 @@ export class AgregarProvedoresComponent implements OnInit {
     numero: new FormControl('', Validators.required),
     colonia: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
+    pagina: new FormControl('')
   });
 
   constructor(private proveedorService:ProveedorService) { }

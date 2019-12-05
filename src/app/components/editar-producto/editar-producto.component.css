@@ -6,6 +6,7 @@
     justify-content: center;
     align-content: center;
     align-items: center;
+    text-align: center;
   }
 
   
@@ -71,6 +72,24 @@
     top: 0;
     opacity: 0;
   }
+  
+  .img {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .carrusel {
+    display: flex;
+  }
+
+  
+
+  
 
   @media screen and (max-device-width: 480px) and (orientation: portrait) {
     .direccion {

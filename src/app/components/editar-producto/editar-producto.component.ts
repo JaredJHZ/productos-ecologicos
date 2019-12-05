@@ -13,13 +13,17 @@ import { ArchivosService } from 'src/app/services/archivos.service';
 export class EditarProductoComponent implements OnInit {
 
   providers: any[] = [];
-  archivo: any;
+  archivos: any[] = [];
   mensajeArchivo:string;
-  nombreArchivo:string;
+  nombreArchivos:string[] = [];
   porcentaje = 0;
   finalizado: boolean = true;
   url:string;
   id: string;
+  producto:any;
+  arrayDeReferencias: any[] = [];
+  imagenPrincipal: any;
+  nombreImagenPrincipal: any;
 
   loading:boolean = true;
 
@@ -28,7 +32,9 @@ export class EditarProductoComponent implements OnInit {
     costo: new FormControl('', Validators.required),
     vendedor: new FormControl('', Validators.required),
     membresia: new FormControl('', Validators.required),
-    imagen: new FormControl('')
+    imagenPrincipal: new FormControl(''),
+    categoria: new FormControl('', Validators.required),
+    imagenes: new FormControl('')
   });
 
 
@@ -50,8 +56,21 @@ export class EditarProductoComponent implements OnInit {
             this.catalogoService.getProduct(this.id)
             .subscribe(
               (product) => {
+
+
                 let data = product.payload.data();
+
+                this.producto = {
+                  ...data,
+                  id:product.payload.id
+                };
+
+                if(!this.producto.imagenes) {
+                  this.productForm.removeControl("imagenes");
+                }
+
                 this.productForm.setValue(data);
+              
                 this.loading = false;
               }
             )
@@ -62,46 +81,60 @@ export class EditarProductoComponent implements OnInit {
   }
 
   addImage(event) {
-    this.mensajeArchivo = `Archivo preparado ${event.target.files[0].name}`;
-    this.archivo = event.target.files[0];
-    this.nombreArchivo = event.target.files[0].name;
-
+    this.archivos.push(event.target.files[0]);
+    this.nombreArchivos.push(event.target.files[0].name); 
+   
   }
 
-  uploadImageAndData() {
-    if (this.nombreArchivo) {
-      let referencia = this.archivosService.referenciaArchivo(this.nombreArchivo);
-      let tarea = this.archivosService.subirArchivo(this.nombreArchivo, this.archivo);
-      this.finalizado = false;
+  addP(event) {
+    this.imagenPrincipal = event.target.files[0];
+    this.nombreImagenPrincipal = event.target.files[0].name;
+  }
 
-    tarea.percentageChanges().subscribe(
-      (porcentaje) => {
-        this.porcentaje = Math.round(porcentaje);
-        if (this.porcentaje === 100 ) {
+  async uploadImagesAndData() {
 
-        referencia.getDownloadURL().subscribe(
-          (url) => {
-            this.url = url;
-            let data = {
-              ...this.productForm.value,
-              'imagen': this.url
-            }
-            this.catalogoService.updateProduct(this.id , data).then(
-              (value) =>  this.router.navigate(['lista-productos'])
-            )
-            
-          }
-        )
-        }
-      }
-    )
+    this.loading = true;
+
+
+
+    if (this.nombreArchivos.length < 1 && !this.nombreImagenPrincipal) {
+        this.catalogoService.updateProduct(this.id , {
+          ...this.productForm.value
+        }).then(
+          (ok) => this.loading = false)
     } else {
-      this.catalogoService.updateProduct(this.id , this.productForm.value).then(
-        (value) =>  this.router.navigate(['lista-productos'])
-      )
-    }
+        if (this.nombreArchivos.length < 1 && this.nombreImagenPrincipal) {
+          let url = await this.archivosService.subirArchivoPrincipal(this.nombreImagenPrincipal, this.imagenPrincipal, this.id);
+          console.log(url);
+          this.productForm.controls['imagenPrincipal'].setValue(url);
+          this.catalogoService.updateProduct(this.id , {
+            ...this.productForm.value
+          })
+          .then(
+            () => this.loading = false
+          )
+        } else {
 
+          for(let i = 0 ; i < this.nombreArchivos.length ; i++) {
+            let url = await this.archivosService.subirArchivoSecundario(this.nombreArchivos[i], this.archivos[i], this.id);
+            this.arrayDeReferencias.push(url);
+          }
 
+          if (this.nombreImagenPrincipal) {
+            let urlPrincipal = await this.archivosService.subirArchivoPrincipal(this.nombreImagenPrincipal, this.imagenPrincipal, this.id);
+            this.productForm.controls['imagenPrincipal'].setValue(urlPrincipal);
+          }
+
+          this.catalogoService.updateProduct(this.id , {
+            ...this.productForm.value,
+            imagenes: this.arrayDeReferencias
+          })
+          .then(
+            () => this.loading = false
+          )
+
+        }
+    }  
   }
 
   ngOnInit() {

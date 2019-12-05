@@ -25,6 +25,8 @@ export class EditarProveedorComponent implements OnInit {
             this.provider = provider.payload.data();
             this.provider['id'] = id;
             this.loading = false;
+            let pagina = this.provider.pagina;
+            console.log(pagina);
             this.providerForm = new FormGroup({
               nombre: new FormControl(this.provider.nombre, Validators.required),
               telefono: new FormControl(this.provider.telefono, Validators.required),
@@ -34,6 +36,7 @@ export class EditarProveedorComponent implements OnInit {
               numero: new FormControl(this.provider.numero, Validators.required),
               colonia: new FormControl(this.provider.colonia, Validators.required),
               email: new FormControl(this.provider.email, Validators.required),
+              pagina: new FormControl(pagina)
             });
         
           }

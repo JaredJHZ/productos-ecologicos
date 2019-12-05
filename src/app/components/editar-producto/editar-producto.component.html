@@ -4,7 +4,7 @@
         </header>
         <body>
             <app-loading *ngIf="loading"></app-loading>
-            <form class="example-form"  (ngSubmit)="uploadImageAndData()" [formGroup]="productForm" >
+            <form class="example-form"  (ngSubmit)="uploadImagesAndData()" [formGroup]="productForm" >
                     <mat-form-field class="example-full-width">
                       <input formControlName="nombre" matInput placeholder="Nombre del producto" >
                     </mat-form-field>
@@ -27,15 +27,46 @@
                         <mat-option *ngFor="let provider of providers" [value]="provider.id">{{provider.name}}</mat-option>
                       </mat-select>
                     </mat-form-field>
-    
-                    <div class="archivo">
-                        <div class="upload-btn-wrapper">
-                            <button *ngIf="!nombreArchivo" class="btn">Subir imágen</button>
-                            <span *ngIf="nombreArchivo">{{nombreArchivo}}</span>
-                            <input class="custom-file-input" type="file" (change)="addImage($event)" placeholder="seleccionar">
-                          </div>
+
+                    <mat-form-field>
+                        <mat-label>Categoria</mat-label>
+                        <mat-select formControlName="categoria">
+                          <mat-option value="higiene">higiene</mat-option>
+                          <mat-option value="belleza">belleza</mat-option>
+                          <mat-option value="moda">moda</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+  
+
+                    <div class="img">
+                      <img [src]="producto.imagenPrincipal" alt="imagen princial" class="img">
+                      <span>Imágen de portada</span>
+                      <input class="custom-file-input" type="file" (change)="addP($event)">
                     </div>
-    
+
+                    <div class="carrusel">
+                      <div class="img">
+                        <img *ngIf="producto.imagenes" [src]="producto.imagenes[0]" alt="imagen princial" class="img">
+                        <p *ngIf="!producto.imagenes">No se ha cargado imagen 1</p>
+                        <span>Imágen de carrusel 1</span>
+                        <input class="custom-file-input" type="file" (change)="addImage($event)">
+                      </div>
+  
+                      <div class="img">
+                        <img *ngIf="producto.imagenes" [src]="producto.imagenes[1]" alt="imagen princial" class="img">
+                        <span>Imágen de carrusel 2</span>
+                        <p *ngIf="!producto.imagenes">No se ha cargado imagen 2</p>
+                        <input class="custom-file-input" type="file" (change)="addImage($event)">
+                      </div>
+  
+                      <div class="img">
+                        <img *ngIf="producto.imagenes" [src]="producto.imagenes[2]" alt="imagen princial" class="img">
+                        <span>Imágen de carrusel 3</span>
+                        <p *ngIf="!producto.imagenes">No se ha cargado imagen 3</p>
+                        <input class="custom-file-input" type="file" (change)="addImage($event)">
+                      </div>
+      
+                    </div>
                     <div class="buttons">
                             <button type="button" (click)="cancelar()" mat-flat-button color="warn">Cancelar</button>
                             <button mat-flat-button color="primary">Actualizar</button>

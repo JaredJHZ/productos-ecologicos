@@ -38,7 +38,8 @@ export class AgregarProductoComponent implements OnInit {
     nombre: new FormControl('', Validators.required),
     costo: new FormControl('', Validators.required),
     vendedor: new FormControl('', Validators.required),
-    membresia: new FormControl('', Validators.required)
+    membresia: new FormControl('', Validators.required),
+    categoria: new FormControl('', Validators.required)
   });
 
 
@@ -50,31 +51,25 @@ export class AgregarProductoComponent implements OnInit {
   }
 
   uploadImageAndData() {
-    let referencia = this.archivosService.referenciaArchivo(this.nombreArchivo);
-    let tarea = this.archivosService.subirArchivo(this.nombreArchivo, this.archivo);
+    
     this.finalizado = false;
 
-    tarea.percentageChanges().subscribe(
-      (porcentaje) => {
-        this.porcentaje = Math.round(porcentaje);
-        if (this.porcentaje === 100 ) {
-
-        referencia.getDownloadURL().subscribe(
+    let data = {
+      ...this.productForm.value
+    }
+    this.productosService.addProduct(data).then(
+      (value) =>  {
+        this.archivosService.subirArchivoPrincipal(this.nombreArchivo, this.archivo,value.id)
+        .then(
           (url) => {
-            this.url = url;
-            let data = {
-              ...this.productForm.value,
-              'imagen': this.url
-            }
-            this.productosService.addProduct(data).then(
-              (value) =>  this.finalizado = true
-            )
-            
+            this.productosService.updateProduct(value.id, {
+              imagenPrincipal: url
+            });
+            this.finalizado = true;
           }
         )
-        }
       }
-    )
+)
 
 
   }

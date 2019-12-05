@@ -1,29 +1,47 @@
-<article *ngIf="!loading && products.length >= 1" class="catalogo">
+<article  class="catalogo">
     <header>
         <app-buscador (buscar)="buscar($event)" ></app-buscador>
     </header>
     <body>
-      <div class="contenido">
+      <div class="categorias">
+          <mat-form-field>
+              <mat-label>Filtro</mat-label>
+              <mat-select (selectionChange)="filter($event.value)" >
+                <mat-option value="">Todo</mat-option>
+                <mat-option value="belleza">Productos de belleza</mat-option>
+                <mat-option value="higiene">Productos de higiene</mat-option>
+                <mat-option value="moda">Productos de moda</mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div class="contenido" *ngIf="!loading && products.length >= 1 && vendedores">
         <div class="list" *ngFor="let product of products">
-          <mat-card class="example-card">
-              <mat-card-header>
-                <mat-card-title>{{product.data.nombre}}</mat-card-title>
-                <mat-card-subtitle>Precio: ${{product.data.costo}}</mat-card-subtitle>
-              </mat-card-header>
-              <div class="img">
-                <img mat-card-image [src]="photoURL(product.data.imagen)" alt="foto de un producto">
-              </div>
-              <mat-card-content>
-                <p style="text-align: center;">
-                  Obtenlo ya!
-                </p>
-              </mat-card-content>
-              <mat-card-actions class="actions">
-                <button mat-flat-button color="primary" (click)="openContactInfo(product)">Contacto</button>
-              </mat-card-actions>
+            <mat-card  class="example-card">
+                <div class="title">
+                  <h3>{{product.data.nombre}}</h3>
+                </div>  
+                <div class="costo">
+                  <h2>${{product.data.costo}}</h2>
+                </div>
+                <div class="vendedor">
+                  <span>vendido por {{getVendedorName(product.data.vendedor)}}</span>
+                </div>
+                <div class="imagen">
+                  <img [src]="product.data.imagenPrincipal" />
+                </div>
+                <div class="acciones">
+                    <button (click)="openContactInfo(product)" mat-raised-button color="primary">Contacto</button>
+                    <button (click)="irProducto(product.id)" mat-raised-button color="accent">Comentarios</button>
+                </div>
             </mat-card>
+          </div>
+
       </div>
+
+      <div style="text-align: center;" *ngIf="products.length <= 0 && !loading">
+          <h1>No hay productos en el catálogo... Vuelva pronto</h1>
       </div>
+
       <mat-paginator class="paginator" [length]="allProducts.length"
               [pageSize]="4"
               [pageSizeOptions]="[4]"
@@ -35,6 +53,3 @@
 
 <app-loading *ngIf="loading"></app-loading>
 
-<div *ngIf="products.length <= 0 && !loading">
-  <h1>No hay productos en el catálogo... Vuelva pronto</h1>
-</div>
